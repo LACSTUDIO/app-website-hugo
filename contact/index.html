@@ -201,7 +201,11 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 软件资源. 保留所有权利。</p>
+                <p>© 2025 领创工作室. 保留所有权利。</p>
+                <p class="mt-2">ICP</p>
+                <button id="theme-toggle" class="mt-4 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-full transition-colors duration-200">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
         </div>
     </footer>
@@ -222,6 +226,25 @@
             } else {
                 header.classList.add('py-3', 'shadow-md');
                 header.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+
+        
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
             }
         });
     </script>
